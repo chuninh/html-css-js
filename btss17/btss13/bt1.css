@@ -1,0 +1,258 @@
+.table{
+    width: 1440px;
+    height: 1561px;
+}
+.language{
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 48px;
+    width: 1440px;
+    padding: 12px;
+}
+select{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    position: absolute;
+    top: 30px;
+    left: 1227px;
+    height: 24px;
+
+}
+.Exclusive{
+    position: absolute;
+    top: 86px;
+    left:135px;
+    display: flex;
+    flex-direction: row;
+  
+}
+.test{
+    height: 2px;
+    width: 1540px;
+    background-color: pink;
+    position: absolute;
+    top: 150px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    left: 300px;
+}
+.nav-links li {
+    display: inline;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    background: #f9f9f9;
+    position: absolute;
+    left: 820px;
+    height: 38px;
+}
+.search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+}
+span{
+    position: absolute;
+    left:135px;
+    margin: 30px;
+    width: 400px;
+}
+.shopNow{
+    color:white;
+    position: absolute;
+    bottom: 14px;
+    left: 820px;
+}
+.home{
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    position: absolute;
+   
+    left: 200px;
+}
+
+img{
+    position: absolute;
+    top: 200px;
+    width: 805px;
+    height: 781px;
+}
+
+.information{
+    width: 371px;
+    border: none;
+    border-bottom: 2px solid pink;
+}
+.image1{
+    position: absolute;
+    top: 325px;
+    left: 934px;
+    
+}
+.account{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    color: white;
+    width: 371px;
+    height: 16px;
+    padding: 20px;
+   
+}
+.account1{
+    position: absolute;
+    left: 150px;
+}
+
+.google{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color:white;
+    border: 2px solid pink;
+    width: 371px;
+    height: 16px;
+    padding: 20px;
+}
+.google1{
+    position: absolute;
+    left: 150px;
+}
+.fa-google{
+    position: absolute;
+    left: 130px;
+}
+.log-in{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: absolute;
+    left: 110px;
+}
+.in{
+    border-bottom: 2px solid pink;
+}
+.title{
+    position: absolute;
+    top: 1121px;
+    width: 1340px;
+    height: 440px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding-left: 135px;
+    padding-top: 80px;
+  
+}
+.search1{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 240px;
+    left: 330px;
+}
+.title input{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+input{
+    width: 218px;
+    height: 48px;
+}
+.save{
+    opacity: 0.3;
+}
+.qr{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 161px;
+    grid-row: span 2;
+}
+.play{
+    width: 103px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 4px;
+    position: absolute;
+    left: 1110px;
+  
+}
+.play1{
+    padding-left: 35px;
+   
+    font-size: small;
+}
+.fa-google-play{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+.app{
+    width: 103px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 4px;
+    position: absolute;
+    left: 1110px;
+    top: 214px;
+}
+.app1{
+    padding-left: 35px;
+    font-size: small;
+}
+.fa-apple{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+.icons{
+    position: absolute;
+    top: 250px; 
+    margin: 10px;
+}
+.fa-linkedin{
+    position: absolute;
+    left:150px ;
+}
+.fa-instagram{
+    position: absolute;
+    left:100px ;
+}
+.fa-twitter{
+    position: absolute;
+    left:50px ;
+}
+.test1{
+    background-color: rgba(30,10,10,255);
+    width: 1440px;
+    height: 1px;
+    position: absolute;
+    top: 1500px;
+}
+.copy{
+    color: white;
+    position: absolute;
+    top: 1550px;
+    left: 600px;
+}

@@ -1,0 +1,9 @@
+let a =prompt("moi ban nhap a");
+let b =prompt("moi ban nhap b");
+let c =prompt("moi ban nhap c");
+let delta = Math.pow(b,2)-4*a*c;
+let sprtdelta = Math.sqrt(delta);
+let x1 = (-b + sprtdelta) /(2*a);
+let x2 = (-b - sprtdelta) /(2*a);
+document.write("x1 = "+x1);
+document.write("x2 = "+x2);

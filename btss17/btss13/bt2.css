@@ -1,0 +1,121 @@
+.table{
+    width: 1440px;
+    height: 1561px;
+}
+.language{
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 48px;
+    width: 1440px;
+    padding: 12px;
+}
+select{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    position: absolute;
+    top: 30px;
+    left: 1227px;
+    height: 24px;
+
+}
+.Exclusive{
+    position: absolute;
+    top: 86px;
+    left:135px;
+    display: flex;
+    flex-direction: row;
+  
+}
+.test{
+    height: 2px;
+    width: 1540px;
+    background-color: pink;
+    position: absolute;
+    top: 150px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    left: 300px;
+}
+.nav-links li {
+    display: inline;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    background: #f9f9f9;
+    position: absolute;
+    left: 820px;
+    height: 38px;
+}
+.search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+}
+span{
+    position: absolute;
+    left:135px;
+    margin: 30px;
+    width: 400px;
+}
+.shopNow{
+    color:white;
+    position: absolute;
+    bottom: 14px;
+    left: 820px;
+}
+.fa-cart-shopping{
+    position: absolute;
+    top: 20px;
+    left: 1130px;
+}
+.fa-heart{
+    position: absolute;
+    top: 20px;
+    left: 1100px;
+}
+.test{
+    height: 1px;
+    width: 1540px;
+    background-color: pink;
+    position: absolute;
+    top: 150px;
+}
+.test1{
+    position: absolute;
+    top: 150px;
+    left: 368px;
+    background-color: pink;
+    height: 384px;
+    width: 1px;
+}
+.text{
+    display: flex;
+    flex-direction: row;
+}
+.text1{
+    position: absolute;
+    top: 182px;
+    left: 135px;
+}
+.img{
+    position: absolute;
+    top: 182px;
+    left: 413px;
+    height: 344px;
+    width: 892px;
+}

@@ -1,0 +1,10 @@
+.name{
+    color: blue;
+}
+.name1{
+    font-weight: 700;
+}
+.name2{
+    border-left: 5px solid yellow;
+    background-color: rgb(177, 203, 194);
+}

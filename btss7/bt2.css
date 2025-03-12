@@ -1,0 +1,28 @@
+.body {
+    width: 100%;
+    border: 1px solid rgba(170, 163, 163, 0.705);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    background-color:  rgba(241, 237, 237, 0.39);
+    margin: 15px;
+
+}
+
+th {
+    margin: 0 20 40px;
+    border: 1px solid rgba(170, 163, 163, 0.705);
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+h2 {
+    color: rgb(201, 47, 47);
+}
+.body1{
+    border: 1px solid rgba(170, 163, 163, 0.705);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    background-color:  rgba(241, 237, 237, 0.39);
+    width: 24%;
+    margin: 15px;
+}

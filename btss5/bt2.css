@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    background-color: black;
+    color: white;
+}
+
+.name{
+    background-color: black;
+}
+.mtp{
+    color: rgba(113, 237, 150, 0.774);
+}

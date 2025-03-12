@@ -1,0 +1,21 @@
+.content{
+    border: 1px solid;
+    position: relative;
+}
+.content1{
+    position:absolute;
+    right: 1px;
+}
+.content2{
+    background-color: rgb(178, 130, 223);
+    height: 45px;
+    line-height: 3;
+}
+
+
+.content3{
+   font-weight: bold;
+}
+.content4{
+   color: pink;
+}

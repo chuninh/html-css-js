@@ -1,0 +1,55 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+
+.text1 {
+    color: rgba(255,140,0,255);
+}
+
+.title {
+    border-radius: 50px;
+    background-color: rgba(237,26,53,255);
+    color: white;
+}
+
+.header {
+    border-color: white;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+
+}
+
+.register{
+    background-color: rgba(230,25,52,255);
+    border-radius: 6px;
+    border-color: rgba(230,25,52,255);
+    color: white;
+    width: 60%;
+    height: 40px;
+}
+
+.share{
+    background-color: white;
+    border-radius: 6px;
+    border-color:rgba(237,39,64,255);
+    color: rgba(237,26,53,255);
+    width: 40%;
+}
+
+.text2 {
+    border-bottom: 2px solid rgba(221,221,221,255);
+    padding-bottom: 6px;
+}
+
+.image {
+      position: absolute;  
+        left: 300px;
+        top: -20px;
+}
+
+.hot{
+    position: relative;
+}

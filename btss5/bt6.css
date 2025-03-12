@@ -1,0 +1,37 @@
+.name{
+    color: brown;
+}
+.name1{
+    border: 5px solid rgb(228, 83, 47);
+    text-align: center;
+
+}
+.name2{
+    background-color: rgb(176, 205, 205);
+}
+.name3{
+    border-left:5px solid rgb(191, 129, 130);
+    background-color: aliceblue;
+}
+.name4{
+ color: brown;
+}
+.name5{
+  color: red;
+}
+.name6{
+color: blue;
+}
+.name7{
+color: red;
+}
+.name8{
+color: blue;
+}
+.name9{
+    border-radius: 8px;
+background-color: rgb(40, 212, 40);
+width: 150px;
+height: 50px;
+color: aliceblue;
+}

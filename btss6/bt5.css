@@ -1,0 +1,46 @@
+.button{
+    font-family: arial;
+    text-align: center;
+    color: white;
+    background-color: rgb(4, 174, 81);
+    width: 33%;
+    height: 30px;
+    border-radius: 6px;
+}
+.content0{
+    font-family: arial;
+    color: white;
+    background-color: rgb(4, 174, 81);
+    height: 30px;
+    font-size: small;
+    text-align: left;
+}
+.header{
+    font-family: arial;
+    color: blue;
+    height: 30px;
+    text-align: center;
+}
+.text1{
+    font-family: arial;
+    text-align: center;
+    background-color: rgb(181, 177, 177);
+    color: black;
+    border-radius: 6px;
+    width: 500px;
+    height: 50px;
+}
+.content{
+    font-family: arial;
+    text-align: center;
+    background-color: gainsboro;
+    color: black;
+    height: 135px;
+}
+.contact{
+    font-family: arial;
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 35px;
+}

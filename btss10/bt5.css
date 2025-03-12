@@ -1,0 +1,44 @@
+.header{
+    background-color: rgba(185,185,185,255);
+    width: 80%;
+}
+
+table{
+    border-bottom: 3px solid white;
+    width: 80%;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.text2{
+    background-color: rgba(20,40,80,255);
+    border-radius: 6px;
+    color: white;
+}
+
+.text{
+    font-size: 30px;
+}
+
+.title{
+    color: rgba(89,90,106,255);
+    margin: 60px;
+    line-height: 200px;
+}
+
+.text3{
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    position: relative;
+}
+
+.image{
+    position: absolute;
+    font-size: 30px;
+    top: 1400px;
+    left: 370px;
+}
+.img{
+    border-radius: 2px;
+}

@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background: #0288D1;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 150px;
+}
+
+.right-menu {
+    display: flex;
+    align-items: center;
+}
+
+.web-setup {
+    background: #0288D1;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+nav {
+    background: #0288D1;
+    padding: 10px 20px;
+    color: #f5f5f5;
+    height: 30px;
+    line-height: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+.search-bar {
+    background: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.add-user {
+    background: #0288D1;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.refresh {
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.user-list {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    color: gray;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.new{
+    color: rgba(141,211,243,255);
+    background: #0288D1;
+    gap: 10px;
+    position: relative;
+
+}
+
+i{
+    color: white;
+}
+
+.edit{
+    position: absolute;
+    right: 10px;
+}
+
+.avatar{
+    height: 25px;
+    width: 25px;
+}

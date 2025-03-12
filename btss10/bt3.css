@@ -1,0 +1,30 @@
+.table{
+    width: 500px;
+    height: 80%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    color: white;
+    border: 1px solid white;
+    width: 70px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left:700px;
+    border-radius: 5px;
+
+}
+.n{
+    opacity: 0.3;
+}
+.n1{
+    opacity: 0.6;
+}
+.name1{
+    display: flex;
+    grid-template-rows: repeat(2,1fr);
+}

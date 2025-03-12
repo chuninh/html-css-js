@@ -1,0 +1,25 @@
+.container{
+    background-color: rgba(249,250,252,255);
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 20px;
+}
+
+.space{
+    padding-left: 60px;
+}
+
+.btn{
+    background-color: rgba(13,110,253,255);
+    color: white;
+}
+
+.text1{
+    opacity: 0.4;
+}
+
+.table1{
+    border-bottom: 1px solid rgba(223,225,226,255);
+    margin-bottom: 30px;
+}

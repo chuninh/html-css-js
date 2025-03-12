@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bt8.css">
+  
+</head>
+<body>
+    <div class="container">
+        <h2>Payment</h2>
+        <div class="payment-options">
+            <label><input type="radio" name="payment" checked> Credit card</label> <br>
+            <label><input type="radio" name="payment"> Debit card</label> <br>
+            <label><input type="radio" name="payment"> PayPal</label><br> <br>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <label>Name on card</label> <br>
+                    <input type="text" id="name" name="name">
+                </td>
+                <td class="space">
+                    <label>Credit card number</label> <br>
+                    <input type="text" id="number" name="number">
+                </td>
+            </tr>
+        </table>
+        <p class="text1">Full name as displayed on card</p> <br> <br>
+        <table class="table1">
+            <tr>
+                <td>
+                    <label>Expiration</label> <br>
+                    <input  type="text" id="Expiration" name="Expiration"> <br> <br> <br>
+                </td>
+                <td class="space">
+                    <label>CVV</label> <br> 
+                    <input  type="text" id="cvv" name="cvv"> <br> <br> <br>
+                </td>
+            </tr>
+        </table>
+
+        <button class="btn">Continue to checkout</button>
+    </div>
+</body>
+</html>

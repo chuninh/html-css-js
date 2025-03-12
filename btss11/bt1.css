@@ -1,0 +1,106 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vb;
+    margin: 0;
+    background-color: white;
+}
+
+.table {
+    
+    width: 90%;
+    height: 80vb;
+ 
+    background-color: blue;
+}
+
+
+.header {
+    grid-column: span 3;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.sidebar1 {
+    background-color: pink;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
+.footer {
+    grid-column: span 3;
+    background-color: blueviolet;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+.name{
+    background-color: yellow;
+    border-radius: 5px;
+}
+.name1{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;  
+    grid-template-rows: 40px 1fr 40px; 
+    gap: 10px;
+    width: 40%;
+    height: 515px;
+    background-color: white;
+    position: absolute;
+    top: 143px;
+    left: 90px;
+    padding: 10px;
+}
+.name2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+    height: 515px;
+    background-color: white;
+    position: absolute;
+    top: 143px;
+    left: 600px;
+    padding: 10px;
+}
+.name3{
+    background-color: yellow;
+    border-radius: 5px;
+}
+.header1{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+.sidebar2{
+    background-color: green;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.sidebar3{
+    background-color: pink;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.footer1{
+    background-color: blueviolet;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}

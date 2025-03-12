@@ -1,0 +1,42 @@
+.subtitle{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .title{
+    background-color: rgba(249,250,252,255);
+    width: 80%;
+    border: 10px solid rgba(249,250,252,255);
+    font-family: Arial;
+  }
+  button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px; 
+    height: 150px;
+    background-color: #f0f0f0;
+    background: linear-gradient(to top, rgb(252, 245, 245), rgb(0, 0, 0));
+    background-clip: text;
+    color: transparent;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+  }
+  p{
+    font-weight: 700;
+    font-size: x-large;
+  }
+  .CAR{
+    background-color: rgba(235,238,243,255);
+  }
+  .FOOTBALL{
+    background-color: rgba(235,238,243,255);
+  }
+  .BASKETBALL{
+    background-color: rgba(235,238,243,255);
+  }
+  .TABLETENNIS{
+    background-color: rgba(235,238,243,255);
+  }

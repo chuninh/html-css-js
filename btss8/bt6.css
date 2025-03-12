@@ -1,0 +1,28 @@
+.content{
+    text-align: center;
+    background-color: rgb(27, 3, 3);
+    height: 500px;
+    padding: 30px;
+    position: relative;
+}
+.content1{
+    width: 50%;
+    border-radius: 20px;
+    border: 1px;
+    height: 30px;
+}
+.content2{
+    position:absolute;
+  padding-left: 10px;
+  padding-top: 8px;
+    
+}
+.content3{
+    width: 50px;
+    position:absolute;
+  padding-left: 430px;
+  padding-top: 10px;
+
+
+}
+

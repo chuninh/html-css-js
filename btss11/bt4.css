@@ -1,0 +1,220 @@
+@media (min-width: 1200px) {
+    .table1 {
+        grid-column: span 6;
+        background-color: rgba(255, 164, 55, 255);
+    }
+
+    .table2 {
+        grid-column: span 6;
+        background-color: rgba(255, 164, 55, 255);
+
+    }
+
+    .table3 {
+        background-color: rgba(218, 236, 0, 255);
+        grid-column: span 12;
+        grid-row: span 4;
+    }
+
+    .table4 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+
+    .table5 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+
+    .table6 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+
+    .table7 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 3;
+
+    }
+
+    .table8 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 3;
+    }
+
+    .table9 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 3;
+    }
+
+    .table10 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 3;
+    }
+
+
+    .table {
+        background-color: azure;
+        height: 250px;
+        width: 350px;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .table1 {
+        grid-column: span 2;
+        background-color: rgba(255, 164, 55, 255);
+    }
+
+    .table2 {
+        grid-column: span 2;
+        background-color: rgba(255, 164, 55, 255);
+
+    }
+
+    .table3 {
+        background-color: rgba(218, 236, 0, 255);
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    .table4 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 2;
+      
+    }
+
+    .table5 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 2;
+       
+    }
+
+    .table6 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-column: span 2;
+       
+    }
+
+    .table7 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 1;
+
+    }
+
+    .table8 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 1;
+    }
+
+    .table9 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 1;
+    }
+
+    .table10 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-column: span 1;
+    }
+
+
+    .table {
+        background-color: azure;
+        height: 250px;
+        width: 350px;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .table1 {
+       grid-row: span 1;
+        background-color: rgba(255, 164, 55, 255);
+    }
+
+    .table2 {
+        grid-row: span 1;
+        background-color: rgba(255, 164, 55, 255);
+
+    }
+
+    .table3 {
+        background-color: rgba(218, 236, 0, 255);
+        grid-row: span 1;
+
+    
+    }
+
+    .table5 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-row: span 2;
+    }
+
+    .table6 {
+        background-color: rgba(74, 137, 208, 255);
+        grid-row: span 2;
+    }
+
+    .table7 {
+        background-color: rgba(227, 227, 227, 255);
+        grid-row: span 1;
+
+    }
+
+    .table8 {
+        background-color: rgba(227, 227, 227, 255);
+       
+    }
+
+    .table9 {
+        background-color: rgba(227, 227, 227, 255);
+     
+    }
+
+    .table10 {
+        background-color: rgba(227, 227, 227, 255);
+        
+    }
+    .table4{
+        background-color: rgba(74, 137, 208, 255);
+        grid-row: span 2;
+    }
+
+
+    .table {
+        background-color: azure;
+        height: 250px;
+        width: 350px;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(10,1fr);
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+
+

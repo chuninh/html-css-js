@@ -1,0 +1,30 @@
+.content1{
+    border: 1px solid ;
+   text-align: center;
+   position:absolute;
+  width: 50%;
+  height: 477px;
+
+
+}
+.content2{
+width: 50%;
+    position:absolute;
+    border: 1px solid ;
+    text-align: center;
+   left: 505px;
+  height: 477px;
+}
+.content3 {
+    position:absolute;
+    background-color: white;
+    border: 2px solid;
+    height: 25px;
+    font-family:  monospace;
+ right: 200px;
+    bottom: 40px;
+}
+.content{
+    position: relative;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+.test{
+    background-color:rgba(127,127,127,255);
+    width: 430px;
+    height: 400px;
+}
+.table{
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 15px;
+    border-radius: 7px;
+}
+button{
+    background-color: rgba(25,135,84,255);
+    color: white;
+}

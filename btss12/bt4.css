@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+.name{
+    width: 1000px;
+}
+.messenge{
+    width: 1000px;
+}
+.email{
+    width: 1000px;
+}
+button{
+    background-color: blue;
+    color: white;
+    border: 3px solid blue;
+}

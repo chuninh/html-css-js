@@ -1,0 +1,30 @@
+body{
+    justify-content: center;
+  
+    height: 20vh;
+    margin: 0;
+}
+.table{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 10px;
+    width: 500px;
+    border: 2px solid black;
+    padding: 10px;
+    background-color:pink;
+}
+.name{
+   color: white;
+   background-color:blueviolet;
+   text-align: center;
+   padding: 20px;
+}
+.name5{
+    grid-column: span 2;
+    color: white;
+   background-color:blueviolet;
+   text-align: center;
+   padding: 20px;
+   font-size: 18px;
+}

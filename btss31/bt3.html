@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .Blue{
+        background-color: blue;
+    }
+    .Red{
+        background-color: red;
+    }
+    .Purple{
+        background-color: plum;
+    }
+
+</style>
+<body>
+    <div id="background">
+        <p>Thay đổi màu nền</p>
+        <p>click chuột</p>
+        <button onclick="changeBlue()" class="Blue">Xanh</button>
+        <button onclick="changeRed()" class="Red">đỏ</button>
+        <button onclick="changePurple()" class="Purple">tím</button>
+    </div>
+</body>
+<script>
+    function changeBlue(){
+        document.getElementById("background").setAttribute("class","Blue")
+    }
+    function changeRed(){
+        document.getElementById("background").setAttribute("class","Red")
+    }
+    function changePurple(){
+        document.getElementById("background").setAttribute("class","Purple")
+    }
+</script>
+</html>

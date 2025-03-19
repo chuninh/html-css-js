@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>dang nhap</h2>
+    <label>Username:</label>
+    <input type="text" id="username">
+    <br><br>
+    <label>Password:</label>
+    <input type="password" id="password">
+    <br><br>
+    <button onclick="kiemTraDangNhap()">Login</button>
+
+    <script>
+        function kiemTraDangNhap() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let correctUsername = "huanrose@gmail.com";
+            let correctPassword = "123456";
+            if (username == correctUsername && password == correctPassword) {
+                console.log("dang nhap thanh cong");
+            } else {
+                console.log("dang nhap that bai");
+            }
+        }
+    </script>
+</body>
+</html>

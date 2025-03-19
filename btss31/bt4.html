@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .grey{
+            background-color: grey;
+        }
+        .modal{
+            border-radius: 5px;
+            width: 500px;
+            height: 100px;
+            background-color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            display: none;
+            margin-left: 100px;
+        }
+        .modal i{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .modal p{
+            padding-top: 40px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modal Example</h1>
+    <button onclick="test()" class="grey">Open Modal</button>
+    <div class="modal">
+        <i onclick="test2()" class="fa-solid fa-xmark"></i>
+        <p>Some text in the modal</p>
+    </div>
+    <script>
+        function test(){
+            document.getElementsByTagName("body")[0].className="grey"
+            document.getElementsByClassName("modal")[0].style.display="block"
+        }
+        function test2(){
+            document.getElementsByTagName("body")[0].className=""
+            document.getElementsByClassName("modal")[0].style.display="none"
+        }
+    </script>
+</body>
+</html>

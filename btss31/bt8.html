@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            background: #f3f3f3;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            background: red;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+        }
+
+        input {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 8px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>My To Do List</h2>
+        <input type="text" id="newTask" placeholder="title">
+        <button onclick="themCongViec()">Add</button>
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        let todoList = [
+            { id: 1, task: "Hit the gym", completed: false },
+            { id: 2, task: "Pay bills", completed: true },
+            { id: 3, task: "Meet George", completed: false },
+            { id: 4, task: "Buy eggs", completed: false },
+            { id: 5, task: "Read a book", completed: false },
+            { id: 6, task: "Organize office", completed: false }
+        ];
+
+        function hienThiDanhSach() {
+            let danhSach = document.getElementById("todoList");
+            danhSach.innerHTML = "";
+
+            todoList.forEach((item, index) => {
+                let li = document.createElement("li");
+                let span = document.createElement("span");
+                span.textContent = item.task;
+                span.className = item.completed ? "completed" : "";
+                span.onclick = function () {
+                    danhDauHoanThanh(index);
+                };
+
+                let btnXoa = document.createElement("button");
+                btnXoa.className = "delete-btn";
+                let iconXoa = document.createElement("i");
+                iconXoa.className = "fa-solid fa-xmark";
+                btnXoa.appendChild(iconXoa);
+                li.appendChild(span);
+                li.appendChild(btnXoa);
+                danhSach.appendChild(li);
+            });
+        }
+
+        function danhDauHoanThanh(index) {
+            todoList[index].completed = !todoList[index].completed;
+            hienThiDanhSach();
+        }
+
+        function themCongViec() {
+            let input = document.getElementById("newTask");
+            let task = input.value;
+
+            if (task) {
+                let newTask = {
+                    id: todoList.length + 1,
+                    task: task,
+                    completed: false
+                };
+                todoList.push(newTask);
+                let li = document.createElement("li");
+                let span = document.createElement("span");
+                span.textContent = newTask.task;
+                span.onclick = function () {
+                    danhDauHoanThanh(todoList.length - 1);
+                };
+
+
+                let btnXoa = document.createElement("button");
+                btnXoa.className = "delete-btn";
+                let iconXoa = document.createElement("i");
+                iconXoa.className = "fa-solid fa-xmark";
+                btnXoa.appendChild(iconXoa);
+                li.appendChild(span);
+                li.appendChild(btnXoa);
+                document.getElementById("todoList").appendChild(li);
+                input.value = "";
+            }
+        }
+
+        hienThiDanhSach();
+    </script>
+
+</body>
+
+</html>

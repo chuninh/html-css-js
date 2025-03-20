@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phóng to ảnh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .thumbnail {
+            width: 150px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery">
+        <img src="https://img-cache.coccoc.com/image2?i=4&l=59/1123471738" alt="Ảnh 1" class="thumbnail" onclick="openImage(this)">
+        <img src="https://img-cache.coccoc.com/image2?i=1&l=33/1148840604" alt="Ảnh 2" class="thumbnail" onclick="openImage(this)">
+        <img src="https://img-cache.coccoc.com/image2?i=3&l=39/1109322840" alt="Ảnh 3" class="thumbnail" onclick="openImage(this)">
+    </div>
+
+    <div class="modal" id="modal" onclick="closeImage()">
+        <img id="modalImage" class="modal-content">
+    </div>
+
+    <script>
+        function openImage(imgElement) {
+            document.getElementById("modalImage").src = imgElement.src;
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("gallery").classList.add("hidden");
+        }
+
+        function closeImage() {
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("gallery").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>

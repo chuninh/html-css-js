@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        border: 2px solid black;
+        height: 300px;
+        width: 300px;
+    }
+
+    .btn {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <button class="btn">Đổi màu nền</button>
+    </div>
+</body>
+<script>
+    let color = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"]
+    document.getElementsByClassName("btn")[0].addEventListener("click", () => {
+        let randomIndex = Math.floor(Math.random() * color.length);
+        document.getElementsByClassName("container")[0].style.backgroundColor = color[randomIndex]
+    });
+
+</script>
+
+</html>

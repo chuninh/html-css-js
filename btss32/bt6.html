@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+        }
+        h1{
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="counter">chu se thay doi kich thuoc khi bam nut</h1>
+    <button id="cong" style="background-color: brown;">+</button>
+    <button id="tru" style="background-color: red;">-</button>
+    <script>
+        let size =24;
+        document.getElementById("cong").addEventListener("click", function () {
+            size += 4;
+            document.getElementById("counter").style.fontSize =size+"px";
+        });
+        document.getElementById("tru").addEventListener("click", function () {
+            size -= 4;
+            document.getElementById("counter").style.fontSize =size+"px";
+        });
+    </script>
+</body>
+
+</html>

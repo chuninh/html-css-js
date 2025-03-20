@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Nhập tên môn học" id="subjectsInput"> 
+    <button onclick="addSubjects()">thêm môn học</button>
+    <ol id="myUL"></ol>
+</body>
+<script>
+    let subjects = ["Toán","Lý","Hóa"]
+    function show(){
+        let str = "";
+            for (let i = 0; i < subjects.length; i++) {
+                str += `<li>${subjects[i]}</li>`;
+            }
+            document.getElementById("myUL").innerHTML = str;
+        }
+
+    function addSubjects(){
+        let input = document.getElementById("subjectsInput").value.trim();
+        if (input) {
+                subjects.push(input);
+                document.getElementById("subjectsInput").value = "";
+                show();
+            } else {
+                alert("tên môn học không được để trống!");
+            }
+        }
+    show();
+</script>
+</html>

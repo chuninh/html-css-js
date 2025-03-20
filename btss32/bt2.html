@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        p {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="clickButton">Bam vao toi</button>
+    <p>So lan bam: <span id="counter">0</span></p>
+
+    <script>
+        let count = 0;
+        document.getElementById("clickButton").addEventListener("click", function() {
+            count++;
+            document.getElementById("counter").textContent = count;
+        });
+    </script>
+
+</body>
+</html>

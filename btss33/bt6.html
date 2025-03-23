@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        height: 700px;
+        justify-self: center;
+        padding-top: 30px;
+    }
+    .container1{
+        display: flex;
+        border-radius: 7px;
+    }
+    .content1{
+        display: flex;
+        gap: 10px;
+    }
+    .content2{
+        background-color: blue;
+        color: aliceblue;
+        width: 70px;
+        justify-self: center;
+        padding-top: 10px;
+        height: 35px;
+    }
+    .content{
+        background-color: aliceblue;
+        width: 440px;
+        border-radius: 7px;
+    }
+    .item{
+        font-size: 80px;
+
+    }
+    .item1{
+        font-size: 70px;
+        margin-top: 18px;
+    }
+    .content0{
+      height: 50px;
+    }
+    .h2{
+        padding-top: 15px;
+        padding-left: 10px;
+    }
+    .text{
+        margin-left: 80px;
+        color: blue;
+    }
+
+
+</style>
+<body>
+    <div style="background-color: rgb(100, 207, 207);">
+
+    <div class="container">
+        <h1 class="text">Ứng dụng thời tiết</h1>
+        <div class="container1">
+       <div> <input id="text" type="text" style="width: 360px;height: 30px;"></div>
+        <div ><button class="content2" onclick="search()">Tìm kiếm</button></div>
+    </div>
+    <div id="div">
+
+    </div>
+</div>
+</div>
+</body>
+<script>
+    const weatherData = [
+    {
+        name: "Hà Nội",
+        temperature: 25,
+        humidity: 70,
+        windSpeed: 5,
+        description: "Có mây",
+        icon: "☁️"
+    },
+    {
+        name: "Hồ Chí Minh",
+        temperature: 32,
+        humidity: 75,
+        windSpeed: 7,
+        description: "Nắng",
+        icon: "☀️"
+    },
+    {
+        name: "Đà Nẵng",
+        temperature: 28,
+        humidity: 82,
+        windSpeed: 12,
+        description: "Mưa rào",
+        icon: "🌧️"
+    }
+];
+function search() {
+    let check=0;
+    let name = document.getElementById("text").value;
+    let str = "";
+    for (let i = 0; i < weatherData.length; i++) {
+        if (weatherData[i].name.toLowerCase().includes(name.toLowerCase())) {
+            check++;
+            str+=`
+            <div class="content">
+                <div class="content0"> <h2 class="h2">${weatherData[i].name}</h2></div>
+                <div class="content1">
+                    <div class="item">${weatherData[i].icon}</div>
+                    <div class="item1"><b>${weatherData[i].temperature}°C</b></div>
+                    <div class="item2">
+                        <p>${weatherData[i].description}</p>
+                        <p>Độ ẩm:${weatherData[i].humidity}%</p>
+                        <p>Tốc độ gió: ${weatherData[i].windSpeed}km/h</p>
+                    </div>
+                </div>
+            </div>
+            `
+        }
+    }
+    if(check==0){
+        str =`
+            <div class="content">
+                <div class="content0"> <h2 class="h2">Không tìm thấy dữ liệu</h2></div>
+            </div>
+            `
+    }
+    document.getElementById("div").innerHTML=str;
+    document.getElementById("text").value="";
+}
+search();
+</script>
+</html>

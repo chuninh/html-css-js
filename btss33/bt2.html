@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+</style>
+
+<body>
+    <textarea name="string" id="string"></textarea>
+    <p> <span id="count">0</span>ki tu</p>
+    <button onclick="kiemtra()">kiem tra</button>
+</body>
+<script>
+    function kiemtra(){
+        let count = document.getElementById("string").value.trim();
+        document.getElementById("count").textContent = count.length;
+    }
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách món ăn</title>
+</head>
+
+<body>
+
+    <select id="test">
+        <option selected disabled>Chọn danh mục</option>
+        <option value="all">Tất cả</option>
+        <option value="Đồ ăn">Đồ ăn</option>
+        <option value="Nước">Đồ uống</option>
+        <option value="Dụng cụ">Dụng cụ</option>
+    </select>
+    <button onclick="chon()">Lọc</button>
+    <ul id="dish"></ul>
+
+</body>
+
+<script>
+    let dish = [
+        { name: 'Rau sạch', category: 'Đồ ăn' },
+        { name: 'Thịt lợn', category: 'Đồ ăn' },
+        { name: 'Pepsi không calo', category: 'Nước' },
+        { name: 'Cocacola', category: 'Nước' },
+        { name: 'Cờ lê', category: 'Dụng cụ' },
+        { name: 'Tuy vít', category: 'Dụng cụ' }
+    ];
+
+    function show(htList) {
+        let str = "";
+        for (let i = 0; i < htList.length; i++) {
+            str += `<li> <b>ten mon an:</b> ${htList[i].name} - <b>Danh muc:</b> <b>${htList[i].category}</b></li>`;
+        }
+        document.getElementById("dish").innerHTML = str;
+    }
+    function chon() {
+        let choice = document.getElementById("test").value;
+        let htDishes = [];
+
+        if (choice === "all") {
+            htDishes = dish;
+        } else {
+            for (let i = 0; i < dish.length; i++) {
+                if (dish[i].category === choice) {
+                    htDishes.push(dish[i]);
+                }
+            }
+        }
+
+        show(htDishes);
+    }
+
+
+    show(dish);
+</script>
+
+</html>

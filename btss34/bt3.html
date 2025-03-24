@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    body{
+        width: 300px;
+    }
+    h1{
+        text-align: center;
+    }
+    input,button{
+        width: 260px;
+        height: 30px;
+    }
+    button{
+        border-radius: 5px;
+        background-color: blue;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1> login</h1>
+    <label for="">email</label><br><br>
+    <input id="email" type="text" placeholder="Enter your email address"><br><br>
+    <label for="">password</label><br><br>
+    <input id="password" type="text" placeholder="Enter your password"><br><br>
+    <button onclick="login()">login</button>
+    <script>
+       let userList = JSON.parse(localStorage.getItem("userList")) || [];
+       function login() {
+           let email= document.getElementById("email").value;
+           let password= document.getElementById("password").value;
+           for (let  i= 0;  i< userList.length; i++) {
+                   if(userList[i].email==email&& userList[i].password==password){
+                       console.log("dang nhap thanh cong");
+                       return;
+                   }
+           }
+           console.log("tài khoản hoặc mật khẩu không đúng!");
+       }
+    </script>
+</body>
+
+</html>

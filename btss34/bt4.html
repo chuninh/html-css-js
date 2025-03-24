@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            padding: 5px 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: auto;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        input {
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <input type="text" placeholder="Thêm việc cần làm" id="subjectsInput">
+    <button onclick="addSubjects()">Thêm</button>
+    <ul id="myUL"></ul>
+
+    <script>
+        let subjects = [];
+        function loadFromLocalStorage() {
+            const storedSubjects = localStorage.getItem("subjects");
+            if (storedSubjects) {
+                subjects = JSON.parse(storedSubjects);
+            }
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem("subjects", JSON.stringify(subjects));
+        }
+
+        function show() {
+            let str = "";
+            for (let i = 0; i < subjects.length; i++) {
+                str += `<li>${subjects[i]} 
+                        <button onclick="removeSubjects(${i})">Xóa</button>
+                        </li>`;
+            }
+            document.getElementById("myUL").innerHTML = str;
+        }
+
+        function addSubjects() {
+            let input = document.getElementById("subjectsInput").value.trim();
+            if (input) {
+                subjects.push(input);
+                document.getElementById("subjectsInput").value = "";
+                saveToLocalStorage(); 
+                show();
+            } else {
+                alert("Không được để trống!");
+            }
+        }
+
+        function removeSubjects(index) {
+            subjects.splice(index, 1);
+            saveToLocalStorage();
+            show();
+        }
+
+        loadFromLocalStorage();
+        show();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h2>Task Management</h2>
+    <input type="text" id="taskContent" placeholder="Content">
+    <input type="date" id="taskDate">
+    <select id="taskStatus">
+        <option selected disabled>choose status</option>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <input type="text" id="taskUser" placeholder="Username">
+    <button onclick="addTask()">Submit</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Content</th>
+                <th>Due date</th>
+                <th>Status</th>
+                <th>Assigned to</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable"></tbody>
+    </table>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function renderTable() {
+            const tableBody = document.getElementById("taskTable");
+            tableBody.innerHTML = "";
+            tasks.forEach((task, index) => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${task.content}</td>
+                        <td>${task.date}</td>
+                        <td>${task.status}</td>
+                        <td>${task.user}</td>
+                        <td>
+                            <button onclick="editTask(${index})">Sửa</button>
+                            <button onclick="deleteTask(${index})">Xóa</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function addTask() {
+            const content = document.getElementById("taskContent").value;
+            const date = document.getElementById("taskDate").value;
+            const status = document.getElementById("taskStatus").value;
+            const user = document.getElementById("taskUser").value;
+            
+            if (content && date && user) {
+                tasks.push({ content, date, status, user });
+                saveTasks();
+                renderTable();
+            }
+        }
+
+        function editTask(index) {
+            const task = tasks[index];
+            document.getElementById("taskContent").value = task.content;
+            document.getElementById("taskDate").value = task.date;
+            document.getElementById("taskStatus").value = task.status;
+            document.getElementById("taskUser").value = task.user;
+            deleteTask(index);
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTable();
+        }
+
+        renderTable();
+    </script>
+</body>
+</html>

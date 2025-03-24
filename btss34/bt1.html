@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+</head>
+
+<style>
+    input {
+        width: 260px;
+        height: 30px;
+    }
+
+    button {
+        width: 260px;
+        height: 30px;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+    }
+
+    #errorMessage {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <label>Email</label><br>
+    <input type="text" id="email" placeholder="Enter your email address"><br><br>
+
+    <label>Password</label><br>
+    <input type="password" id="password" placeholder="Enter your password"><br><br>
+
+    <label>Confirm Password</label><br>
+    <input type="password" id="confirmPassword" placeholder="Confirm your password"><br><br>
+
+    <button onclick="register()">Register</button>
+    
+    <div id="errorMessage"></div>
+
+</body>
+
+<script>
+    function register() {
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let confirmPassword = document.getElementById("confirmPassword").value.trim();
+        let errorMessage = document.getElementById("errorMessage");
+
+        let errors = [];
+
+        if (email.length === 0) {
+            errors.push("email ko dc de trong");
+        }
+        if (password.length === 0) {
+            errors.push("mat khau ko dc de trong");
+        }
+        if (confirmPassword.length === 0) {
+            errors.push("xac nhan mat khau ko dc de trong");
+        } else if (confirmPassword !== password) {
+            errors.push("mat khau xac nhan ko dung");
+        }
+
+        let userList = JSON.parse(localStorage.getItem("userList")) || [];
+
+        for(i=0;i<userList.length;i++){
+            if(userList[i].email == email){
+                errors.push("email da ton tai");
+            }
+        }
+
+        if (errors.length > 0) {
+            errorMessage.innerHTML = errors.join("<br>");
+            return;
+        }
+
+        let newUser = { email: email, password: password };
+        userList.push(newUser);
+        localStorage.setItem("userList", JSON.stringify(userList));
+
+        errorMessage.style.color = "green";
+        errorMessage.innerHTML = "dang ki";
+        window.location.href="./bt3.html";
+    }
+</script>
+
+</html>

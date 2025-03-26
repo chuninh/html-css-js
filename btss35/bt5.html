@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .div1 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button {
+            width: 200px;
+            height: 30px;
+            background-color: blue;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .div2 {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .input-box {
+            border-radius: 5px;
+            width: 500px;
+            height: 30px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 20%; left: 50%; transform: translate(-50%, -20%);
+            background: #fff; padding: 20px; border-radius: 5px;
+            box-shadow: 0px 0px 10px #ccc;
+            display: none;
+            z-index: 2;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .error {
+            display: none;
+            color: red;
+        }
+
+        .them {
+            background-color: blue;
+            color: white;
+        }
+
+        .div4 {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="hideForm()"></div>
+
+    <div>
+        <div class="div1">
+            <h3>Danh mục</h3>
+            <button class="button" onclick="showForm()">Thêm mới danh mục</button>
+        </div>
+        <div class="div2">
+            <select id="taskStatus">
+                <option value="tat ca">Tất cả</option>
+                <option value="Đang hoạt động">Đang hoạt động</option>
+                <option value="Không hoạt động">Không hoạt động</option>
+            </select>
+            <input type="text" id="searchBox" placeholder="Tìm kiếm danh mục theo tên">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã danh mục</th>
+                    <th>Tên danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody id="taskTable"></tbody>
+        </table>
+
+        <div class="form-container" id="formContainer">
+            <div class="header">
+                <h3 id="formTitle">Thêm mới danh mục</h3>
+                <button onclick="hideForm()">X</button>
+            </div>
+            <label>Mã danh mục</label><br>
+            <input type="text" class="input-box" id="taskId"><br>
+            <p class="error" id="errorId">Mã danh mục không được để trống</p>
+            <label>Tên danh mục</label><br>
+            <input type="text" class="input-box" id="taskName"><br>
+            <p class="error" id="errorName">Tên danh mục không được để trống</p>
+            <label>Trạng thái</label><br>
+            <input type="radio" name="status" value="Đang hoạt động"> Đang hoạt động
+            <input type="radio" name="status" value="Không hoạt động"> Không hoạt động
+            <div class="div4">
+                <button onclick="hideForm()">Hủy</button>
+                <button class="them" id="saveButton">Thêm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const taskIdEl = document.getElementById("taskId");
+        const taskNameEl = document.getElementById("taskName");
+        const errorIdEl = document.getElementById("errorId");
+        const errorNameEl = document.getElementById("errorName");
+        const formContainer = document.getElementById("formContainer");
+        const saveButton = document.getElementById("saveButton");
+        const formTitle = document.getElementById("formTitle");
+        const taskTable = document.getElementById("taskTable");
+        const overlay = document.getElementById("overlay");
+        const taskStatusEl = document.getElementById("taskStatus");
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        let editingIndex = -1;
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function showForm(index = -1) {
+            formContainer.style.display = "block";
+            overlay.style.display = "block";
+
+            if (index >= 0) {
+                editingIndex = index;
+                taskIdEl.value = tasks[index].id;
+                taskNameEl.value = tasks[index].name;
+                document.querySelector(`input[name='status'][value='${tasks[index].status}']`).checked = true;
+                saveButton.innerText = "Cập nhật";
+                formTitle.innerText = "Chỉnh sửa danh mục";
+            } else {
+                editingIndex = -1;
+                clearForm();
+            }
+        }
+
+        function hideForm() {
+            formContainer.style.display = "none";
+            overlay.style.display = "none";
+            clearForm();
+        }
+
+        function clearForm() {
+            taskIdEl.value = "";
+            taskNameEl.value = "";
+            document.querySelectorAll("input[name='status']").forEach(el => el.checked = false);
+            saveButton.innerText = "Thêm";
+            formTitle.innerText = "Thêm mới danh mục";
+            errorIdEl.style.display = "none";
+            errorNameEl.style.display = "none";
+        }
+
+        function renderTable() {
+            taskTable.innerHTML = tasks.map((task, index) => `
+                <tr>
+                    <td>${task.id}</td>
+                    <td>${task.name}</td>
+                    <td>${task.status}</td>
+                    <td>
+                        <button onclick="showForm(${index})">Sửa</button>
+                        <button onclick="deleteTask(${index})">Xóa</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        saveButton.addEventListener("click", function () {
+            const id = taskIdEl.value.trim();
+            const name = taskNameEl.value.trim();
+            const status = document.querySelector("input[name='status']:checked")?.value;
+
+            if (!id || !name) {
+                errorIdEl.style.display = id ? "none" : "block";
+                errorNameEl.style.display = name ? "none" : "block";
+                return;
+            }
+
+            editingIndex >= 0 ? tasks[editingIndex] = { id, name, status } : tasks.push({ id, name, status });
+            saveTasks();
+            renderTable();
+            hideForm();
+        });
+        function deleteTask(index) {
+            if (confirm("Bạn có chắc chắn muốn xóa danh mục này?")) {
+                tasks.splice(index, 1);
+                saveTasks();
+                renderTable();
+            }
+        }
+
+        renderTable();
+    </script>
+</body>
+</html>

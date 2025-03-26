@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên Rikkei</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .pagination {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách nhân viên Rikkei</h2>
+    <input type="text" id="name" placeholder="Tên nhân viên">
+    <input type="text" id="position" placeholder="Chức vụ">
+    <button onclick="addEmployee()">Thêm nhân viên</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTable"></tbody>
+    </table>
+    
+    <div class="pagination" id="pagination"></div>
+
+    <script>
+        let employees = JSON.parse(localStorage.getItem('employees')) || [];
+        const itemsPerPage = 3;
+        let currentPage = 1;
+        
+        function addEmployee() {
+            let name = document.getElementById('name').value;
+            let position = document.getElementById('position').value;
+            if (name && position) {
+                employees.push({ name, position });
+                localStorage.setItem('employees', JSON.stringify(employees));
+                document.getElementById('name').value = '';
+                document.getElementById('position').value = '';
+                renderTable();
+            }
+        }
+        
+        function renderTable() {
+            let table = document.getElementById('employeeTable');
+            table.innerHTML = '';
+            let start = (currentPage - 1) * itemsPerPage;
+            let end = start + itemsPerPage;
+            let paginatedEmployees = employees.slice(start, end);
+            
+            paginatedEmployees.forEach((employee, index) => {
+                let row = table.insertRow();
+                row.insertCell(0).textContent = start + index + 1;
+                row.insertCell(1).textContent = employee.name;
+                row.insertCell(2).textContent = employee.position;
+            });
+            renderPagination();
+        }
+
+        function renderPagination() {
+            let totalPages = Math.ceil(employees.length / itemsPerPage);
+            let pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            let prevBtn = document.createElement('button');
+            prevBtn.textContent = 'Previous';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable();
+                }
+            };
+            pagination.appendChild(prevBtn);
+            
+            for (let i = 1; i <= totalPages; i++) {
+                let btn = document.createElement('button');
+                btn.textContent = i;
+                btn.onclick = function() {
+                    currentPage = i;
+                    renderTable();
+                };
+                if (i === currentPage) btn.style.fontWeight = 'bold';
+                pagination.appendChild(btn);
+            }
+            
+            let nextBtn = document.createElement('button');
+            nextBtn.textContent = 'Next';
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+            nextBtn.onclick = function() {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTable();
+                }
+            };
+            pagination.appendChild(nextBtn);
+        }
+
+        renderTable();
+    </script>
+</body>
+</html>

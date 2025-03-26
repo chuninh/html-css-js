@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            background: pink;
+            margin: 10px auto;
+            width: 300px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li:hover {
+            background-color: #ffcccc;
+        }
+        .btn-container {
+            display: flex;
+            gap: 5px;
+        }
+        .edit-btn, .delete-btn {
+            background-color: #ff9800;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>To-do List k24_PTIT</h1>
+    <input type="text" placeholder="Nhập nhiệm vụ" id="subjectsInput">
+    <button onclick="addSubjects()">Thêm</button>
+    <ul id="myUL"></ul>
+
+    <script>
+        let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("subjects", JSON.stringify(subjects));
+        }
+        function show() {
+            let str = "";
+            for (let i = 0; i < subjects.length; i++) {
+                str += `<li>
+                            <span id="task-${i}">${subjects[i]}</span>
+                            <div class="btn-container">
+                                <button class="edit-btn" onclick="editSubjects(${i})">Sửa</button>
+                                <button class="delete-btn" onclick="removeSubjects(${i})">Xóa</button>
+                            </div>
+                        </li>`;
+            }
+            document.getElementById("myUL").innerHTML = str;
+        }
+
+        function addSubjects() {
+            let input = document.getElementById("subjectsInput").value.trim();
+            if (input) {
+                subjects.push(input);
+                localStorage.setItem("subjects", JSON.stringify(subjects));
+                document.getElementById("subjectsInput").value = "";
+                saveTasks()
+                show();
+            } else {
+                alert("Không được để trống!");
+            }
+        }
+
+        function removeSubjects(index) {
+            subjects.splice(index, 1);
+            localStorage.setItem("subjects", JSON.stringify(subjects));
+            saveTasks()
+            show();
+        }
+
+        function editSubjects(index) {
+            let currentTask = document.getElementById(`task-${index}`);
+            let newValue = prompt("Nhập nội dung mới:", currentTask.innerText);
+            if (newValue !== null && newValue.trim() !== "") {
+                subjects[index] = newValue.trim();
+                localStorage.setItem("subjects", JSON.stringify(subjects));
+                show();
+            }
+        }
+
+        document.getElementById("subjectsInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                addSubjects();
+            }
+        });
+
+        show();
+    </script>
+</body>
+</html>

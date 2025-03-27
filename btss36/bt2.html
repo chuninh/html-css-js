@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+       .all{
+        text-align: center;
+        background-color: pink;
+        width: 900px;
+        height: 600px;
+       }
+       .herder{
+        display: flex;
+        flex-direction: row;
+       }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <h2>bạn thích món ăn nào nhất?</h2>
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=1/296034630" alt="" width="250px" height="150px">
+            <div>
+                <h6>bún bò huế </h6>
+                <p>❤️ <span id="count1">0</span> lượt thích </p>
+                <button onclick="like1()">thích + 1 </button>
+            </div>
+        </div>
+
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=1/313095659" alt=""width="250px" height="150px">
+            <div>
+                <h6>phở bò hà nộinội </h6>
+                <p>❤️ <span id="count2">0</span> lượt thích </p>
+                <button onclick="like2()">thích + 1 </button>
+            </div>
+        </div>
+
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=15/293721009" alt=""width="250px" height="150px">
+            <div>
+                <h6>cơm tấm sài gòngòn </h6>
+                <p>❤️ <span id="count3">0</span> lượt thích </p>
+                <button onclick="like3()">thích + 1 </button>
+            </div>
+        </div>
+    </div>
+    <script>
+      
+        function like1(){
+            let count1 =JSON.parse(localStorage.getItem("count1")) ||0;
+            count1++;
+            document.getElementById("count1").textContent=count1;
+            localStorage.setItem("count1" ,JSON.stringify(count1))
+        }
+
+        function like2(){
+            let count2 =JSON.parse(localStorage.getItem("count2")) ||0;
+            count2++;
+            document.getElementById("count2").textContent=count2;
+            localStorage.setItem("count2" ,JSON.stringify(count2));
+
+        }
+
+        function like3(){
+            let count3 =JSON.parse(localStorage.getItem("count3")) ||0;
+            count3++;
+            document.getElementById("count3").textContent=count3;
+            localStorage.setItem("count3" ,JSON.stringify(count3));
+        }
+
+    </script>
+</body>
+</html>

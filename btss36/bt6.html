@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống đánh giá sản phẩm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 400px;
+        }
+
+        .stars {
+            font-size: 30px;
+            cursor: pointer;
+            color: #ddd;
+        }
+
+        .stars.active {
+            color: gold;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .comment-box {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        .comment-list {
+            margin-top: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .comment-list li {
+            background: #fff;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment-list span {
+            font-weight: bold;
+            color: gold;
+        }
+
+        img {
+            width: 100%;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product">
+        <h2>Sản phẩm: Tai nghe Bluetooth</h2>
+        <img src="https://imgs.search.brave.com/JRPdDRzOPxD2puv-eXZx8AiHMt7ySnUVRZs4uCbu7CI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI5/NDk2NjY4Ni9waG90/by9iZWlqaW5nLWNo/aW5hLWFpcnBvZHMt/bWF4LWlzLXNlZW4t/YXQtYW4tYXBwbGUt/c3RvcmUtb24tamFu/dWFyeS0yLTIwMjEt/aW4tYmVpamluZy1j/aGluYS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9aXlyd0Np/TkJ6UW9jZzdUTHEt/LTNpNGM5dXpiTkda/NHprOW4tdUwwRWtk/Zz0"
+            alt="Tai nghe Bluetooth" />
+        <p>Đánh giá sản phẩm:</p>
+        <div id="rating">
+            <span class="stars" data-value="1">★</span>
+            <span class="stars" data-value="2">★</span>
+            <span class="stars" data-value="3">★</span>
+            <span class="stars" data-value="4">★</span>
+            <span class="stars" data-value="5">★</span>
+        </div>
+        <p id="selected-rating">Bạn chưa đánh giá.</p>
+
+        <!-- Bình luận -->
+        <div class="comment-section">
+            <h3>Bình luận</h3>
+            <textarea id="comment-input" class="comment-box" placeholder="Nhập bình luận..."></textarea>
+            <button onclick="submitReview()">Gửi</button>
+            <ul id="comment-list" class="comment-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Lấy tất cả sao đánh giá
+        const stars = document.querySelectorAll(".stars");
+        const ratingText = document.getElementById("selected-rating");
+
+        // Lấy đánh giá từ localStorage (nếu có)
+        let savedRating = localStorage.getItem("rating") || 0;
+        if (savedRating > 0) {
+            updateStars(savedRating);
+        }
+
+        stars.forEach(star => {
+            star.addEventListener("click", function () {
+                let rating = this.getAttribute("data-value");
+                localStorage.setItem("rating", rating);
+                updateStars(rating);
+            });
+        });
+
+        function updateStars(rating) {
+            stars.forEach(star => {
+                if (star.getAttribute("data-value") <= rating) {
+                    star.classList.add("active");
+                } else {
+                    star.classList.remove("active");
+                }
+            });
+            ratingText.textContent = `Bạn đã đánh giá ${rating} sao.`;
+        }
+
+        // Hàm lưu bình luận
+        function submitReview() {
+            let commentInput = document.getElementById("comment-input");
+            let commentList = document.getElementById("comment-list");
+
+            let commentText = commentInput.value.trim();
+            if (commentText === "") {
+                alert("Vui lòng nhập bình luận!");
+                return;
+            }
+
+            let rating = localStorage.getItem("rating") || 0;
+
+            let commentItem = document.createElement("li");
+            commentItem.innerHTML = `<span>${"★".repeat(rating)}</span> <b>${commentText}</b>`;
+
+            commentList.appendChild(commentItem);
+
+            // Lưu vào localStorage
+            let savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+            savedComments.push({ rating, text: commentText });
+            localStorage.setItem("comments", JSON.stringify(savedComments));
+
+            commentInput.value = ""; // Xóa ô nhập
+        }
+
+        // Load lại bình luận khi tải trang
+        function loadComments() {
+            let commentList = document.getElementById("comment-list");
+            let savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            savedComments.forEach(comment => {
+                let commentItem = document.createElement("li");
+                commentItem.innerHTML = `<span>${"★".repeat(comment.rating)}</span> <b>${comment.text}</b>`;
+                commentList.appendChild(commentItem);
+            });
+        }
+
+        loadComments(); // Gọi hàm để tải bình luận cũ
+    </script>
+</body>
+
+</html>

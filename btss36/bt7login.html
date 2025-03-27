@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    body {
+        width: 300px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input,
+    button {
+        width: 260px;
+        height: 30px;
+    }
+
+    button {
+        border-radius: 5px;
+        background-color: blue;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1> đăng nhập </h1>
+
+    <input id="email" type="text" placeholder="tên đăng nhập "><br><br>
+    <input id="password" type="text" placeholder="mật khẩu "><br><br>
+    <button onclick="login()">đăng nhập </button>
+    <p>chưa có tài khoản? <span class="logup">đăng ký </span></p>
+    <script>
+        let userList = JSON.parse(localStorage.getItem("userList")) || [];
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            window.location.href = "./bt7home.html";
+        }
+        document.getElementsByClassName("logup")[0].addEventListener("click", function () {
+            window.location.href = "./bt7logup.html";
+        })
+    </script>
+</body>
+
+</html>

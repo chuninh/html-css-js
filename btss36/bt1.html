@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bạn thích món ăn nào?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+       .all {
+            text-align: center;
+            background-color: pink;
+            width: 900px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+       }
+       .herder {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin: 15px 0;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+       }
+       img {
+            border-radius: 8px;
+       }
+       button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+       }
+       button:hover {
+            background-color: darkblue;
+       }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <h2>Bạn thích món ăn nào nhất?</h2>
+
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=1/296034630" alt="Bún bò Huế" width="250px" height="150px">
+            <div>
+                <h6>Bún bò Huế</h6>
+                <p>❤️ <span id="count1">0</span> lượt thích</p>
+                <button onclick="like('count1')">Thích +1</button>
+            </div>
+        </div>
+
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=1/313095659" alt="Phở bò Hà Nội" width="250px" height="150px">
+            <div>
+                <h6>Phở bò Hà Nội</h6>
+                <p>❤️ <span id="count2">0</span> lượt thích</p>
+                <button onclick="like('count2')">Thích +1</button>
+            </div>
+        </div>
+
+        <div class="herder">
+            <img src="https://img-cache.coccoc.com/image2?i=1&l=15/293721009" alt="Cơm tấm Sài Gòn" width="250px" height="150px">
+            <div>
+                <h6>Cơm tấm Sài Gòn</h6>
+                <p>❤️ <span id="count3">0</span> lượt thích</p>
+                <button onclick="like('count3')">Thích +1</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        function loadLikes() {
+            let ids = ["count1", "count2", "count3"];
+            ids.forEach(id => {
+                let count = JSON.parse(localStorage.getItem(id)) || 0;
+                document.getElementById(id).textContent = count;
+            });
+        }
+
+        function like(id) {
+            let count = JSON.parse(localStorage.getItem(id)) || 0;
+            count++;
+            document.getElementById(id).textContent = count;
+            localStorage.setItem(id, JSON.stringify(count));
+        }
+
+        loadLikes();
+    </script>
+</body>
+</html>

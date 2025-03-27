@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        button {
+            width: 60px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .plum {
+            background-color: plum;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Chọn màu nền bạn yêu thích</h2><br><br>
+        <button class="red">Đỏ</button>
+        <button class="blue">Xanh</button>
+        <button class="yellow">Vàng</button>
+        <button class="plum">Tím</button><br><br>
+        <p>Trang sẽ ghi nhớ màu bạn đã chọn kể cả tải lại trang.</p>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+
+        const savedColor = localStorage.getItem("backgroundColor");
+        if (savedColor) {
+            container.style.background = savedColor;
+        }
+
+      
+        function changeColor(color) {
+            container.style.background = color;
+            localStorage.setItem("backgroundColor", color);
+        }
+
+        document.querySelector(".red").addEventListener("click", () => changeColor("red"));
+        document.querySelector(".blue").addEventListener("click", () => changeColor("blue"));
+        document.querySelector(".yellow").addEventListener("click", () => changeColor("yellow"));
+        document.querySelector(".plum").addEventListener("click", () => changeColor("plum"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+</head>
+
+<style>
+    input {
+        width: 260px;
+        height: 30px;
+    }
+
+    button {
+        width: 260px;
+        height: 30px;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+    }
+
+    #errorMessage {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <h1> đăng ký </h1>
+   
+    <input id="email" type="text" placeholder="tên đăng nhập "><br><br>
+    <input id="password" type="text" placeholder="mật khẩu "><br><br>
+    <button onclick="logup()">đăng ky </button>
+    
+    <div id="errorMessage"></div>
+
+</body>
+
+<script>
+    function logup() {
+       
+        window.location.href="./bt7login.html";
+    }
+</script>
+
+</html>
